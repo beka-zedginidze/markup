@@ -2,6 +2,8 @@
 
 body {
     padding: 20px;
+    overflow-x: hidden;
+
 }
 
 .header {
@@ -98,23 +100,69 @@ body {
     position: relative;
     height: 729px !important;
 }
+
 .bottom-lines {
     position: absolute;
     bottom: 0px;
     width: 100%;
     margin-bottom: 20px;
 }
+
 .mid {
     display: flex;
+    
 }
+
 .mid-containter {
+    position: relative;
     border: 2px solid black;
     width: 83%;
     border-top-style: none;
     border-left-style: none;
-    padding: 15px;
+    padding: 1px 15px 5px 15px;
 }
 
+.content-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.scrollable.showScroll::after {
+    position: absolute;
+    content: '';
+    top: 5%;
+    right: 7px;
+    height: 90%;
+    width: 3px;
+    background: rgba(224, 224, 255, .3);
+}
+
+.scrollable .content-wrapper {
+    width: 100%;
+    height: 100%;
+    padding-right: 50%;
+    overflow-y: scroll;
+    
+}
+.scroller {
+    z-index: 5;
+    cursor: pointer;
+    position: absolute;
+    border: 2px solid black;
+    width: 10px;
+    background: white;
+    top: 0px;
+    right: -18px;
+    -webkit-transition: top .08s;
+    -moz-transition: top .08s;
+    -ms-transition: top .08s;
+    -o-transition: top .08s;
+    transition: top .08s;
+}
+
+.index {
+    margin-top: 15px;
+}
 .scroll-mid {
     border: 2px solid black;
     border-left-style: none;
@@ -124,11 +172,12 @@ body {
     height: 779px;
     position: relative;
     bottom: 20px;
+    z-index: -1;
 }
 
 .mid-containter {
     background-color: rgba(238,238,238,255);
-    height: 687px;
+    height: 711px;
 }
 
 .first-container {
@@ -159,6 +208,8 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    z-index: -1;
+
 }
 
 .s-cont {
@@ -190,7 +241,9 @@ body {
     width: 100%;
     position: relative;
     left: -15px;
+    top: 5px;
     border-left-style: none;
+    z-index: 1;
 
 }
 .scroll-btn {
@@ -217,11 +270,12 @@ body {
 }
 .popup {
     border: 2px solid black;
-    width: 20%;
+    width: 17%;
     position: relative;
     left: 76%;
     top: -185px;
     background-color: white;
+    display: none;
 }
 
 .center {
@@ -229,3 +283,27 @@ body {
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+@media only screen and (max-width: 850px) {
+    .first-container {
+        height: 70px;
+    }
+   .cont {
+       height: 70px;
+   }
+   .s-cont {
+       height: 70px;
+   }
+}
+
+  @media only screen and (max-width: 600px) {
+    .first-container {
+        height: 50px;
+    }
+   .cont {
+       height: 50px;
+   }
+   .s-cont {
+       height: 50px;
+   }
+}  
